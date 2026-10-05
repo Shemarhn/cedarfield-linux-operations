@@ -1,0 +1,9 @@
+[Unit]
+Description=Isolated Cedarfield server and owned client network
+Before=cedarfield.service cedarfield-ssh.service fail2ban.service ufw.service
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/cedarfield-network
+RemainAfterExit=true
+[Install]
+WantedBy=multi-user.target

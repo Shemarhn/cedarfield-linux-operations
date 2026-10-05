@@ -1,0 +1,8 @@
+2026-10-05T15:12:50Z
+USER     GROUP        PID COMMAND
+cedarfi+ cedarfi+    6463 /usr/bin/python3 /opt/cedarfield/server.py
+Uid:	999	999	999	999
+Gid:	989	989	989	989
+CapEff:	0000000000000000
+NoNewPrivs:	1
+PASS: nobody cannot read private runtime configuration

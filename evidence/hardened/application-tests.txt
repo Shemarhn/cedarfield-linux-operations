@@ -1,0 +1,11 @@
+test_authorized_write_and_html_escaping (test_app.AppTest.test_authorized_write_and_html_escaping) ... ok
+test_health_and_synthetic_dataset (test_app.AppTest.test_health_and_synthetic_dataset) ... ok
+test_invalid_payload (test_app.AppTest.test_invalid_payload) ... ok
+test_persistence_and_integrity (test_app.AppTest.test_persistence_and_integrity) ... ok
+test_short_token_rejected (test_app.AppTest.test_short_token_rejected) ... ok
+test_unauthorized_write (test_app.AppTest.test_unauthorized_write) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.315s
+
+OK

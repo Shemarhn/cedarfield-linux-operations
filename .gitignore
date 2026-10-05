@@ -1,0 +1,13 @@
+.env
+*.key
+*.pem
+id_*
+private/
+__pycache__/
+*.pyc
+*.sqlite*
+*.tar*
+*.vhdx
+*.tfstate*
+*.log
+.deck-build/

@@ -1,0 +1,25 @@
+name: Verify implementation
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  app-and-config:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Application tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Static configuration checks
+        run: python3 tests/static_checks.py
+      - name: Shell syntax and ShellCheck
+        run: |
+          find baseline hardening operations verification -name '*.sh' -print0 | xargs -0 -n1 bash -n
+          find baseline hardening operations verification -name '*.sh' -print0 | xargs -0 shellcheck -e SC1091
+      - name: Verification refuses an unmarked host
+        run: |
+          if sudo bash verification/verify.sh; then
+            echo 'Verifier incorrectly accepted an unmarked host'; exit 1
+          fi

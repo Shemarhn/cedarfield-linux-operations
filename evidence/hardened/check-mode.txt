@@ -1,0 +1,2 @@
+CHECK OK: lab marker, key-access proof, packages and proposed SSH syntax
+Would back up configs, reduce app privilege, restrict permissions, apply firewall/SSH/log/update policies and verify health.

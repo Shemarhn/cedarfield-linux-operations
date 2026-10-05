@@ -1,0 +1,47 @@
+UTC capture:
+2026-10-05T15:01:40Z
+OS and virtualization:
+Ubuntu 24.04 LTS
+wsl
+Lab listeners (unrelated namespace listeners excluded):
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                          
+LISTEN 0      128        192.0.2.1:22222      0.0.0.0:*    users:(("sshd",pid=917,fd=3))   
+LISTEN 0      5          192.0.2.1:9099       0.0.0.0:*    users:(("python3",pid=915,fd=3))
+LISTEN 0      5          127.0.0.1:8090       0.0.0.0:*    users:(("python3",pid=913,fd=6))
+Application health and records:
+{"health": "ok"}
+{"jobs": [{"id": 1, "customer": "C-101", "issue": "Printer maintenance", "status": "Received"}, {"id": 2, "customer": "C-102", "issue": "Workstation setup", "status": "In progress"}, {"id": 3, "customer": "C-103", "issue": "Laptop service", "status": "Ready"}]}
+Effective lab SSH controls:
+port 22222
+listenaddress 192.0.2.1:22222
+permitrootlogin yes
+passwordauthentication yes
+kbdinteractiveauthentication no
+allowusers cedaradmin
+authenticationmethods any
+permitopen 127.0.0.1:8090
+Identity, sandbox and file permissions:
+MainPID=913
+UMask=0022
+User=
+Group=
+ReadWritePaths=
+PrivateTmp=no
+ProtectHome=no
+ProtectSystem=no
+NoNewPrivileges=no
+644 root:root /etc/cedarfield/app.conf
+644 root:root /opt/cedarfield/server.py
+755 root:root /var/lib/cedarfield
+644 root:root /var/lib/cedarfield/jobs.sqlite
+Firewall:
+Status: inactive
+Update timers:
+inactive
+inactive
+Safe app journal excerpt:
+Started cedarfield.service - Cedarfield baseline application.
+INFO service started
+INFO request method=GET route=/health
+INFO request method=GET route=/health
+INFO request method=GET route=/api/jobs

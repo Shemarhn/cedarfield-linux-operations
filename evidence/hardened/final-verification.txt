@@ -1,0 +1,27 @@
+Cedarfield observed host checks
+2026-10-05T15:13:10Z
+{"health": "ok"}PASS curl --fail --silent http://127.0.0.1:8090/health
+
+PASS records
+PASS prop User cedarfield
+PASS prop Group cedarfield
+PASS prop NoNewPrivileges yes
+PASS prop PrivateTmp yes
+PASS prop ProtectSystem strict
+PASS prop ProtectHome yes
+PASS sshprop passwordauthentication no
+PASS sshprop permitrootlogin no
+PASS sshprop authenticationmethods publickey
+PASS perms
+PASS closed
+PASS firewall
+active
+active
+active
+PASS systemctl is-active cedarfield.service cedarfield-ssh.service fail2ban.service
+active
+active
+active
+PASS systemctl is-active apt-daily.timer apt-daily-upgrade.timer cedarfield-health.timer
+PASS test -f /var/lib/cedarfield-admin-proof
+Failures: 0

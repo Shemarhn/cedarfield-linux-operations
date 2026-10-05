@@ -1,0 +1,1 @@
+PASS: intended administrator key access observed before password SSH disablement. Host key checked against locally provisioned trusted host key.

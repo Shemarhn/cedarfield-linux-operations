@@ -1,0 +1,10 @@
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-10-05 10:01 -05
+Nmap scan report for 192.0.2.1
+Host is up (0.00015s latency).
+
+PORT      STATE  SERVICE
+8090/tcp  closed opsmessaging
+9099/tcp  open   unknown
+22222/tcp open   easyengine
+
+Nmap done: 1 IP address (1 host up) scanned in 13.02 seconds

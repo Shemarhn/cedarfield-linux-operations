@@ -1,0 +1,7 @@
+[Unit]
+Description=Check Cedarfield every five minutes while guest is running
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+[Install]
+WantedBy=timers.target

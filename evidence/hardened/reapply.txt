@@ -1,0 +1,8 @@
+Default incoming policy changed to 'deny'
+(be sure to update your rules accordingly)
+Default outgoing policy changed to 'allow'
+(be sure to update your rules accordingly)
+Skipping adding existing rule
+Logging enabled
+Firewall is active and enabled on system startup
+{"health": "ok"}

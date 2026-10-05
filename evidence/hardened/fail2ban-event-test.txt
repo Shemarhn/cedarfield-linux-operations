@@ -1,0 +1,25 @@
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed:	1
+|  |- Total failed:	4
+|  `- Journal matches:	_SYSTEMD_UNIT=cedarfield-ssh.service
+`- Actions
+   |- Currently banned:	1
+   |- Total banned:	1
+   `- Banned IP list:	192.0.2.2
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] Anywhere                   REJECT IN   192.0.2.2                  # by Fail2Ban after 3 attempts against sshd
+[ 2] 192.0.2.1 22222/tcp        ALLOW IN    192.0.2.2                 
+
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-10-05 10:08 -05
+Nmap scan report for 192.0.2.1
+Host is up (0.00020s latency).
+
+PORT      STATE  SERVICE
+22222/tcp closed easyengine
+
+Nmap done: 1 IP address (1 host up) scanned in 13.02 seconds
+PASS: legitimate key access restored after controlled unban

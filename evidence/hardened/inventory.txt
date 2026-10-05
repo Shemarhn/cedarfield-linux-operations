@@ -1,0 +1,57 @@
+UTC capture:
+2026-10-05T15:08:13Z
+OS and virtualization:
+Ubuntu 24.04 LTS
+wsl
+Lab listeners (unrelated namespace listeners excluded):
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                           
+LISTEN 0      5          127.0.0.1:8090       0.0.0.0:*    users:(("python3",pid=3047,fd=6))
+LISTEN 0      128        192.0.2.1:22222      0.0.0.0:*    users:(("sshd",pid=3049,fd=3))   
+Application health and records:
+{"health": "ok"}
+{"jobs": [{"id": 1, "customer": "C-101", "issue": "Printer maintenance", "status": "Received"}, {"id": 2, "customer": "C-102", "issue": "Workstation setup", "status": "In progress"}, {"id": 3, "customer": "C-103", "issue": "Laptop service", "status": "Ready"}]}
+Effective lab SSH controls:
+port 22222
+listenaddress 192.0.2.1:22222
+permitrootlogin no
+passwordauthentication no
+kbdinteractiveauthentication no
+allowusers cedaradmin
+authenticationmethods publickey
+permitopen 127.0.0.1:8090
+Identity, sandbox and file permissions:
+MainPID=3047
+UMask=0077
+User=cedarfield
+Group=cedarfield
+ReadWritePaths=/var/lib/cedarfield
+PrivateTmp=yes
+ProtectHome=yes
+ProtectSystem=strict
+NoNewPrivileges=yes
+600 root:root /etc/cedarfield/app.conf
+644 root:root /opt/cedarfield/server.py
+750 cedarfield:cedarfield /var/lib/cedarfield
+600 cedarfield:cedarfield /var/lib/cedarfield/jobs.sqlite
+Firewall:
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+192.0.2.1 22222/tcp        ALLOW IN    192.0.2.2                 
+
+Update timers:
+active
+active
+Safe app journal excerpt:
+cedarfield.service: Deactivated successfully.
+Stopped cedarfield.service - Cedarfield synthetic service register.
+Started cedarfield.service - Cedarfield synthetic service register.
+INFO service started
+INFO request method=GET route=/health
+INFO request method=GET route=/health
+INFO request method=GET route=/health
+INFO request method=GET route=/api/jobs

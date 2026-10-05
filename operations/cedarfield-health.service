@@ -1,0 +1,13 @@
+[Unit]
+Description=Cedarfield local health check
+Requires=cedarfield-network.service
+After=cedarfield-network.service
+[Service]
+Type=oneshot
+NetworkNamespacePath=/run/netns/cedarfield
+ExecStart=/usr/local/sbin/cedarfield-health
+User=cedarfield
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true

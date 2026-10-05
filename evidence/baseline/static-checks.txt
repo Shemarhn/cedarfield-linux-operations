@@ -1,0 +1,1 @@
+Static configuration and lab-scope checks passed

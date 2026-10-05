@@ -1,0 +1,3 @@
+backup jobs=3
+backup integrity=ok
+Local backup and private configuration copy complete; separate storage still required.

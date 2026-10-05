@@ -8,6 +8,7 @@ import unittest
 import urllib.error
 import urllib.request
 from pathlib import Path
+from contextlib import closing
 
 spec = importlib.util.spec_from_file_location('server', Path(__file__).parents[1] / 'app/server.py')
 app = importlib.util.module_from_spec(spec)
@@ -66,7 +67,7 @@ class AppTest(unittest.TestCase):
         with self.request('/api/jobs', {'customer': 'C-104', 'issue': 'Persistence check', 'status': 'Ready'}, True):
             pass
         app.initialize(self.db)
-        with sqlite3.connect(self.db) as conn:
+        with closing(sqlite3.connect(self.db)) as conn:
             self.assertEqual(conn.execute('SELECT COUNT(*) FROM jobs').fetchone()[0], 4)
             self.assertEqual(conn.execute('PRAGMA integrity_check').fetchone()[0], 'ok')
 

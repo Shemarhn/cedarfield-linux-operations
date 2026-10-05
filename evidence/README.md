@@ -22,6 +22,7 @@ Captured 2026-10-05 from an actual local Ubuntu 24.04 WSL2 guest. Baseline captu
 | [Rollback](hardened/rollback-exercise.txt) | Application-only rollback returned health ok | Restoration of a lost virtual disk or complete security rollback |
 | [Re-hardening](hardened/reharden-after-rollback.txt), [final verifier](hardened/final-verification.txt) | Final controls and required workload passed with zero failures | Production SLA, repeatability guarantee or all future states |
 | [Post-change tests](hardened/application-tests.txt), [ShellCheck](hardened/shellcheck.txt) | Six application tests and shell lint passed | Running those tests within the app service sandbox; live host evidence is separate |
+| [Final application check](hardened/final-application-check.txt) | Six Linux tests and live host checks passed after the explicit SQLite connection-close correction | New production or full VM assurance |
 | [Captured HTML response](hardened/application-response.html) | Actual workload-rendered synthetic register response | A live hosted service or screenshot of Proxmox |
 
 The check/apply output and logs preserve successes and boundaries. No passwords, runtime token, private keys, host trust files, private IPs, account IDs or VM disk exports are published. SSH transcripts are summarized to omit authentication metadata. Only synthetic customer data remains. Empty ShellCheck output means no diagnostic; execution exit status was successful.

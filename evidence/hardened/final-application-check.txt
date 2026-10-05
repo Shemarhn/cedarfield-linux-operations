@@ -1,0 +1,39 @@
+2026-10-05T15:47:27Z
+test_authorized_write_and_html_escaping (test_app.AppTest.test_authorized_write_and_html_escaping) ... ok
+test_health_and_synthetic_dataset (test_app.AppTest.test_health_and_synthetic_dataset) ... ok
+test_invalid_payload (test_app.AppTest.test_invalid_payload) ... ok
+test_persistence_and_integrity (test_app.AppTest.test_persistence_and_integrity) ... ok
+test_short_token_rejected (test_app.AppTest.test_short_token_rejected) ... ok
+test_unauthorized_write (test_app.AppTest.test_unauthorized_write) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.113s
+
+OK
+Cedarfield observed host checks
+2026-10-05T15:47:30Z
+{"health": "ok"}PASS curl --fail --silent http://127.0.0.1:8090/health
+
+PASS records
+PASS prop User cedarfield
+PASS prop Group cedarfield
+PASS prop NoNewPrivileges yes
+PASS prop PrivateTmp yes
+PASS prop ProtectSystem strict
+PASS prop ProtectHome yes
+PASS sshprop passwordauthentication no
+PASS sshprop permitrootlogin no
+PASS sshprop authenticationmethods publickey
+PASS perms
+PASS closed
+PASS firewall
+active
+active
+active
+PASS systemctl is-active cedarfield.service cedarfield-ssh.service fail2ban.service
+active
+active
+active
+PASS systemctl is-active apt-daily.timer apt-daily-upgrade.timer cedarfield-health.timer
+PASS test -f /var/lib/cedarfield-admin-proof
+Failures: 0

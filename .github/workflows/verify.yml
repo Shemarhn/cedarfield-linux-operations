@@ -12,6 +12,8 @@ jobs:
           persist-credentials: false
       - name: Application tests
         run: python3 -m unittest discover -s tests -v
+      - name: Evidence integrity
+        run: sha256sum --check evidence/SHA256SUMS.txt
       - name: Static configuration checks
         run: python3 tests/static_checks.py
       - name: Shell syntax and ShellCheck

@@ -7,12 +7,18 @@ import os
 import sqlite3
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from contextlib import contextmanager
 
 
+@contextmanager
 def connect(path):
     conn = sqlite3.connect(path)
-    conn.execute('PRAGMA journal_mode=WAL')
-    return conn
+    try:
+        conn.execute('PRAGMA journal_mode=WAL')
+        with conn:
+            yield conn
+    finally:
+        conn.close()
 
 
 def initialize(path):
